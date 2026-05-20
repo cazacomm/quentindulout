@@ -1,0 +1,14 @@
+{
+  "name": "Quentin Dulout Courtage",
+  "short_name": "QD Courtage",
+  "description": "Courtier en assurances à Tarbes (65) pour particuliers et professionnels.",
+  "lang": "fr",
+  "icons": [
+    { "src": "/favicon-32.png", "type": "image/png", "sizes": "32x32" },
+    { "src": "/apple-touch-icon.png", "type": "image/png", "sizes": "180x180" }
+  ],
+  "theme_color": "#0e3a5a",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "start_url": "/"
+}
