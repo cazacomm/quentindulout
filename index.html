@@ -396,7 +396,20 @@ body[data-theme="pro"] .oppList li{background:rgba(255,255,255,.05)}
 .oppCta{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}
 @media (max-width:760px){.oppList{grid-template-columns:1fr}}
 
-    
+    /* ===== Épargne & placements ===== */
+.epargneGrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:34px}
+.epargneGrid .card h3{font-size:20px}
+.epargneNote{max-width:860px;margin:24px auto 0;text-align:center;color:var(--muted);line-height:1.75;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:18px 22px;box-shadow:var(--shadow2)}
+.partners{max-width:980px;margin:30px auto 0;text-align:center}
+.partnersIntro{color:var(--muted);line-height:1.75;margin:0 auto 18px;max-width:64ch}
+.partnersLogos{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;align-items:stretch}
+.partnerLogo{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:var(--shadow2);display:grid;place-items:center;min-height:104px}
+body[data-theme="pro"] .partnerLogo{border-color:rgba(255,255,255,.14)}
+.partnerLogo img{width:100%;max-width:160px;height:auto;object-fit:contain}
+@media (max-width:980px){.epargneGrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:760px){.epargneGrid{grid-template-columns:1fr}.partnersLogos{grid-template-columns:repeat(2,1fr)}}
+
+
     <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css">
 
   </style>
@@ -420,6 +433,7 @@ body[data-theme="pro"] .oppList li{background:rgba(255,255,255,.05)}
 
         <nav class="nav" aria-label="Navigation principale">
           <a href="#services">Mes services</a>
+          <a href="#epargne">Épargne</a>
           <a href="#mission">Votre Courtier</a>
           <a href="#apropos">À propos</a>
         </nav>
@@ -448,6 +462,7 @@ body[data-theme="pro"] .oppList li{background:rgba(255,255,255,.05)}
     <div class="mobilePanel" id="mobilePanel" aria-label="Menu mobile">
       <div class="wrap">
         <a href="#services" data-close>Mes services</a>
+        <a href="#epargne" data-close>Épargne</a>
         <a href="#mission" data-close>Votre Courtier</a>
         <a href="#apropos" data-close>À propos</a>
         <a href="#avis" data-close>Avis</a>
@@ -493,6 +508,29 @@ body[data-theme="pro"] .oppList li{background:rgba(255,255,255,.05)}
 </div>
 
         <div class="svcList" id="svcList" aria-label="Liste des services"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="epargne" aria-label="Épargne et placements">
+    <div class="wrap">
+      <div class="center reveal">
+        <h2 class="sectionTitle">Épargne &amp; placements</h2>
+        <p class="sectionIntro" id="epargneIntro">Faire fructifier votre épargne sans jargon : on vous explique chaque solution simplement, et on choisit celle qui correspond vraiment à vos projets.</p>
+      </div>
+
+      <div class="epargneGrid" id="epargneList" aria-label="Solutions d'épargne"></div>
+
+      <div class="epargneNote reveal" id="epargneNote"></div>
+
+      <div class="partners reveal" aria-label="Nos partenaires épargne">
+        <p class="partnersIntro">Pour votre épargne, nous travaillons avec nos partenaires officiels : des assureurs reconnus et solides, pour des solutions sérieuses et durables.</p>
+        <div class="partnersLogos">
+          <span class="partnerLogo"><img src="images/partenaire-abeille.png" width="160" height="120" loading="lazy" decoding="async" alt="Abeille Assurances, partenaire épargne de Quentin Dulout Courtage"></span>
+          <span class="partnerLogo"><img src="images/partenaire-swisslife.png" width="160" height="120" loading="lazy" decoding="async" alt="Swiss Life, partenaire épargne de Quentin Dulout Courtage"></span>
+          <span class="partnerLogo"><img src="images/partenaire-generali.png" width="160" height="120" loading="lazy" decoding="async" alt="Generali, partenaire épargne de Quentin Dulout Courtage"></span>
+          <span class="partnerLogo"><img src="images/partenaire-cardif.png" width="160" height="120" loading="lazy" decoding="async" alt="Cardif (groupe BNP Paribas), partenaire épargne de Quentin Dulout Courtage"></span>
+        </div>
       </div>
     </div>
   </section>
@@ -808,6 +846,9 @@ body[data-theme="pro"] .oppList li{background:rgba(255,255,255,.05)}
       const servicesIntro = $('#servicesIntro');
       const svcTag = $('#svcTag');
       const svcList = $('#svcList');
+      const epargneIntro = $('#epargneIntro');
+      const epargneList = $('#epargneList');
+      const epargneNote = $('#epargneNote');
 
       const SERVICES = {
         particulier: [
@@ -822,6 +863,31 @@ body[data-theme="pro"] .oppList li{background:rgba(255,255,255,.05)}
           { title:"Assurance emprunteur", desc:"Pour un financement professionnel : clarté sur les garanties et accompagnement." },
           { title:"Multirisque professionnelle", desc:"Locaux, matériel, équipements : une vision globale pour éviter les mauvaises surprises." }
         ]
+      };
+
+      const EPARGNE = {
+        particulier: [
+          { title:"PER – Plan d'Épargne Retraite", desc:"Préparez votre retraite à votre rythme, avec des versements libres et un cadre fiscal avantageux." },
+          { title:"Assurance vie", desc:"L'épargne souple par excellence : faire fructifier votre capital tout en gardant la main dessus." },
+          { title:"Transmission de patrimoine", desc:"Organisez sereinement ce que vous transmettez à vos proches, dans les meilleures conditions." },
+          { title:"Contrat de capitalisation", desc:"Un outil d'épargne durable pour valoriser et transmettre votre capital dans le temps." }
+        ],
+        pro: [
+          { title:"Contrat de capitalisation (personne morale)", desc:"Placez la trésorerie de votre société dans un cadre pensé pour les personnes morales." },
+          { title:"Assurance vie", desc:"Une solution d'épargne souple pour faire travailler votre capital selon vos objectifs." },
+          { title:"Transmission de patrimoine de société", desc:"Anticipez la transmission de votre entreprise et sécurisez sa continuité." },
+          { title:"Épargne salariale & retraite du dirigeant", desc:"PER et dispositifs collectifs : fidélisez vos équipes et préparez votre propre retraite." }
+        ]
+      };
+
+      const EPARGNE_INTRO = {
+        particulier: "Faire fructifier votre épargne sans jargon : on vous explique chaque solution simplement, et on choisit celle qui correspond vraiment à vos projets.",
+        pro: "Valoriser la trésorerie et le patrimoine de votre société : des solutions d'épargne claires, choisies selon vos objectifs et votre horizon."
+      };
+
+      const EPARGNE_NOTE = {
+        particulier: "En passant par un courtier, vous bénéficiez de frais réduits. Et si vous voulez simplement y voir clair avant de vous engager, on peut se rencontrer pour un premier rendez-vous, sans engagement. C'est souvent là que tout devient plus simple.",
+        pro: "En passant par un courtier, vous bénéficiez de frais réduits. On peut se rencontrer pour faire le point sur vos objectifs, sans engagement, avant toute décision."
       };
 
       function setSegment(seg){
@@ -845,6 +911,15 @@ body[data-theme="pro"] .oppList li{background:rgba(255,255,255,.05)}
 
         svcList.innerHTML = SERVICES[seg].map(item => `
           <article class="svcItem" tabindex="0" aria-label="Service ${item.title}">
+            <h3>${item.title}</h3>
+            <p>${item.desc}</p>
+          </article>
+        `).join('');
+
+        epargneIntro.textContent = EPARGNE_INTRO[seg];
+        epargneNote.textContent = EPARGNE_NOTE[seg];
+        epargneList.innerHTML = EPARGNE[seg].map(item => `
+          <article class="card" tabindex="0" aria-label="Épargne ${item.title}">
             <h3>${item.title}</h3>
             <p>${item.desc}</p>
           </article>
