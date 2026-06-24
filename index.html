@@ -397,17 +397,16 @@ body[data-theme="pro"] .oppList li{background:rgba(255,255,255,.05)}
 @media (max-width:760px){.oppList{grid-template-columns:1fr}}
 
     /* ===== Épargne & placements ===== */
-.epargneGrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:34px}
-.epargneGrid .card h3{font-size:20px}
-.epargneNote{max-width:860px;margin:24px auto 0;text-align:center;color:var(--muted);line-height:1.75;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:18px 22px;box-shadow:var(--shadow2)}
+/* Même grille que « Mes services » mais inversée : widgets à gauche, image à droite */
+.epargneGrid{grid-template-columns:.78fr 1.22fr}
+.epargneGrid .svcItem{text-align:center}
 .partners{max-width:980px;margin:30px auto 0;text-align:center}
-.partnersIntro{color:var(--muted);line-height:1.75;margin:0 auto 18px;max-width:64ch}
 .partnersLogos{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;align-items:stretch}
 .partnerLogo{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:var(--shadow2);display:grid;place-items:center;min-height:104px}
 body[data-theme="pro"] .partnerLogo{border-color:rgba(255,255,255,.14)}
 .partnerLogo img{width:100%;max-width:160px;height:auto;object-fit:contain}
-@media (max-width:980px){.epargneGrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:760px){.epargneGrid{grid-template-columns:1fr}.partnersLogos{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:980px){.epargneGrid{grid-template-columns:1fr}}
+@media (max-width:760px){.partnersLogos{grid-template-columns:repeat(2,1fr)}}
 
 
     <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css">
@@ -516,15 +515,21 @@ body[data-theme="pro"] .partnerLogo{border-color:rgba(255,255,255,.14)}
     <div class="wrap">
       <div class="center reveal">
         <h2 class="sectionTitle">Épargne &amp; placements</h2>
-        <p class="sectionIntro" id="epargneIntro">Faire fructifier votre épargne sans jargon : on vous explique chaque solution simplement, et on choisit celle qui correspond vraiment à vos projets.</p>
+        <p class="sectionIntro">Faire fructifier votre épargne sans jargon.</p>
       </div>
 
-      <div class="epargneGrid" id="epargneList" aria-label="Solutions d'épargne"></div>
+      <div class="servicesGrid epargneGrid">
+        <div class="svcList" id="epargneList" aria-label="Solutions d'épargne"></div>
 
-      <div class="epargneNote reveal" id="epargneNote"></div>
+        <div class="svcImg reveal" aria-label="Illustration épargne et placements">
+          <div class="tag">Épargne &amp; placements</div>
+          <!-- TODO: ajouter ici l'image d'épargne (même visuel particulier et pro), p.ex. images/epargne.avif :
+               <img class="svcPhoto" src="images/epargne.avif" width="740" height="493" loading="lazy" decoding="async" alt="Épargne et placements accompagnés par Quentin Dulout Courtage, courtier à Tarbes"> -->
+          <span class="imgLogo" aria-hidden="true"><img src="images/logoentier.jpeg" width="64" height="64" loading="lazy" alt=""></span>
+        </div>
+      </div>
 
       <div class="partners reveal" aria-label="Nos partenaires épargne">
-        <p class="partnersIntro">Pour votre épargne, nous travaillons avec nos partenaires officiels : des assureurs reconnus et solides, pour des solutions sérieuses et durables.</p>
         <div class="partnersLogos">
           <span class="partnerLogo"><img src="images/partenaire-abeille.png" width="160" height="120" loading="lazy" decoding="async" alt="Abeille Assurances, partenaire épargne de Quentin Dulout Courtage"></span>
           <span class="partnerLogo"><img src="images/partenaire-swisslife.png" width="160" height="120" loading="lazy" decoding="async" alt="Swiss Life, partenaire épargne de Quentin Dulout Courtage"></span>
@@ -846,9 +851,7 @@ body[data-theme="pro"] .partnerLogo{border-color:rgba(255,255,255,.14)}
       const servicesIntro = $('#servicesIntro');
       const svcTag = $('#svcTag');
       const svcList = $('#svcList');
-      const epargneIntro = $('#epargneIntro');
       const epargneList = $('#epargneList');
-      const epargneNote = $('#epargneNote');
 
       const SERVICES = {
         particulier: [
@@ -880,16 +883,6 @@ body[data-theme="pro"] .partnerLogo{border-color:rgba(255,255,255,.14)}
         ]
       };
 
-      const EPARGNE_INTRO = {
-        particulier: "Faire fructifier votre épargne sans jargon : on vous explique chaque solution simplement, et on choisit celle qui correspond vraiment à vos projets.",
-        pro: "Valoriser la trésorerie et le patrimoine de votre société : des solutions d'épargne claires, choisies selon vos objectifs et votre horizon."
-      };
-
-      const EPARGNE_NOTE = {
-        particulier: "En passant par un courtier, vous bénéficiez de frais réduits. Et si vous voulez simplement y voir clair avant de vous engager, on peut se rencontrer pour un premier rendez-vous, sans engagement. C'est souvent là que tout devient plus simple.",
-        pro: "En passant par un courtier, vous bénéficiez de frais réduits. On peut se rencontrer pour faire le point sur vos objectifs, sans engagement, avant toute décision."
-      };
-
       function setSegment(seg){
         const isPro = seg === 'pro';
         document.body.setAttribute('data-theme', isPro ? 'pro' : 'particulier');
@@ -916,10 +909,8 @@ body[data-theme="pro"] .partnerLogo{border-color:rgba(255,255,255,.14)}
           </article>
         `).join('');
 
-        epargneIntro.textContent = EPARGNE_INTRO[seg];
-        epargneNote.textContent = EPARGNE_NOTE[seg];
         epargneList.innerHTML = EPARGNE[seg].map(item => `
-          <article class="card" tabindex="0" aria-label="Épargne ${item.title}">
+          <article class="svcItem" tabindex="0" aria-label="Épargne ${item.title}">
             <h3>${item.title}</h3>
             <p>${item.desc}</p>
           </article>
