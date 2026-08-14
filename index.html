@@ -54,10 +54,9 @@
   <meta name="ICBM" content="43.2330, 0.0780" />
 
   <!-- TODO SEO — à compléter dans le JSON-LD ci-dessous dès réception des infos :
-       - address.streetAddress : adresse postale exacte à Tarbes
        - sameAs : fiche Google Business + réseaux sociaux (Facebook / Instagram / LinkedIn)
-       - identifier (ORIAS) : numéro ORIAS
-       Les champs absents ont été volontairement omis (mieux que des fausses valeurs). -->
+       Les champs absents ont été volontairement omis (mieux que des fausses valeurs).
+       NAP (nom / adresse / téléphone) et ORIAS propagés depuis mentions.html. -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -86,8 +85,13 @@
       { "@type": "City", "name": "Toulouse" },
       { "@type": "City", "name": "Foix" }
     ],
+    "identifier": [
+      { "@type": "PropertyValue", "name": "ORIAS", "value": "26006621" },
+      { "@type": "PropertyValue", "name": "SIREN", "value": "102224748" }
+    ],
     "address": {
       "@type": "PostalAddress",
+      "streetAddress": "6 rue Carnot",
       "addressLocality": "Tarbes",
       "postalCode": "65000",
       "addressRegion": "Hautes-Pyrénées",
@@ -764,6 +768,10 @@ body[data-theme="pro"] .partnerLogo{border-color:rgba(255,255,255,.14)}
           <div class="contactLine"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="rgba(255,255,255,.92)" stroke-width="2"/><path d="M12 7v5l3 2" fill="none" stroke="rgba(255,255,255,.92)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             <div>Du lundi au vendredi, 9h–17h (sans interruption)</div>
           </div>
+          <!-- NAP (nom / adresse / téléphone) : adresse identique à mentions.html et au JSON-LD. -->
+          <div class="contactLine"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.5-7-11a7 7 0 0 1 14 0c0 6.5-7 11-7 11z" fill="none" stroke="rgba(255,255,255,.92)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div>6 rue Carnot, 65000 Tarbes</div>
+          </div>
           <div class="contactLine"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.5-7-11a7 7 0 0 1 14 0c0 6.5-7 11-7 11z" fill="none" stroke="rgba(255,255,255,.92)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             <div>Zone d’intervention : Toute la France et l’Outre-mer</div>
           </div>
@@ -800,7 +808,7 @@ body[data-theme="pro"] .partnerLogo{border-color:rgba(255,255,255,.14)}
       <span style="opacity:.85">• Réalisé par </span>
       <a href="https://www.cazacomm.fr" target="_blank" rel="noopener">CAZA COMM</a>
     </span>
-    <span><a href="mentions.html">Mentions légales</a></span>
+    <span><a href="/blog/">Blog</a> · <a href="mentions.html">Mentions légales</a></span>
   </div>
 </footer>
 
