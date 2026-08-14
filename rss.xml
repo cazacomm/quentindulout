@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blog Quentin Dulout Courtage</title>
+    <link>https://quentinduloutcourtage.fr/blog/</link>
+    <atom:link href="https://quentinduloutcourtage.fr/rss.xml" rel="self" type="application/rss+xml" />
+    <description>Conseils en assurance pour particuliers et professionnels, par un courtier basé à Tarbes (65).</description>
+    <language>fr-FR</language>
+    <copyright>Quentin Dulout Courtage</copyright>
+    <lastBuildDate>Fri, 14 Aug 2026 09:00:00 +0200</lastBuildDate>
+
+    <item>
+      <title>Assurance habitation à Tarbes : locataire, propriétaire ou PNO, quelles garanties choisir ?</title>
+      <link>https://quentinduloutcourtage.fr/blog/assurance-habitation-tarbes-locataire-proprietaire-pno/</link>
+      <guid isPermaLink="true">https://quentinduloutcourtage.fr/blog/assurance-habitation-tarbes-locataire-proprietaire-pno/</guid>
+      <description>Locataire, propriétaire occupant ou bailleur : les trois situations n'appellent pas le même contrat. Le point sur les garanties utiles et les pièges classiques, avec les réalités du logement à Tarbes et dans les Hautes-Pyrénées.</description>
+      <category>Assurance habitation</category>
+      <pubDate>Fri, 14 Aug 2026 09:00:00 +0200</pubDate>
+    </item>
+  </channel>
+</rss>
