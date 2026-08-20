@@ -309,15 +309,51 @@ def volume_rank(errors: list[str], wc: int) -> tuple[int, int]:
     puis on préfère celle qui approche le mieux la cible."""
     deficit = max(0, PROMPT_MIN_WORDS - wc)
     excess = max(0, wc - MAX_WORDS)
-    return (1 if errors else 0, deficit + excess)
+    return (len(errors), deficit + excess)
 
+
+
+def build_correction(cfg: dict, errors: list[str], wc: int) -> str:
+    """Message de reprise adressé au modèle. Il ne porte plus seulement sur le
+    volume : toute erreur de validation que le modèle peut corriger lui-même
+    (maillage interne, nombre de questions, longueur du title) y passe, tant
+    qu'il reste des appels au budget."""
+    demands = []
+    if wc < PROMPT_MIN_WORDS:
+        demands.append(
+            f"Tu as généré {wc} mots pour le corps (FAQ exclue), il en faut au moins "
+            f"{PROMPT_MIN_WORDS}. Développe chaque section : ajoute des paragraphes, "
+            "des exemples concrets, du contexte local, des nuances. Ne retire aucune "
+            "section.")
+    elif wc > MAX_WORDS:
+        demands.append(
+            f"Tu as généré {wc} mots pour le corps (FAQ exclue), c'est trop : il en "
+            f"faut au plus {PROMPT_MAX_WORDS}. Resserre chaque section sans en "
+            "supprimer aucune.")
+
+    if any("maillage" in e for e in errors):
+        targets = "\n".join(f"  {t}" for t in cfg["internal_link_targets"])
+        demands.append(
+            "Il manque des liens internes, c'est rédhibitoire. Insère dans le corps "
+            "au moins DEUX liens markdown vers ces chemins exacts, placés dans deux "
+            f"sections différentes :\n{targets}\net au moins UN lien vers /blog/. "
+            "Écris-les sous la forme [libellé descriptif](/#services), en recopiant "
+            "le chemin tel quel. Ne touche à rien d'autre.")
+
+    others = [e for e in errors if "maillage" not in e and "volume" not in e]
+    if others:
+        demands.append("Corrige aussi ces points : " + " ; ".join(others) + ".")
+
+    if not demands:
+        demands.append("Reprends ton JSON en respectant toutes les consignes.")
+    return " ".join(demands) + " Réponds par le seul objet JSON complet."
 
 
 def build_prompt(cfg: dict, topic: dict, rules: str) -> tuple[str, str]:
     """Prompt court : plus de gabarit HTML à recopier, plus de contraintes de
     balisage. Le modèle écrit, le script fabrique la page."""
     targets = cfg["internal_link_targets"]
-    targets_txt = ", ".join(targets)
+    targets_bullets = "\n".join(f"    {t}" for t in targets)
 
     system = f"""Tu es rédacteur SEO/GEO senior pour une entreprise locale française.
 Tu écris du CONTENU, jamais du HTML : la mise en page est faite par ailleurs.
@@ -354,8 +390,13 @@ RÈGLES DE CONTENU
   40 à 70 mots. Elles ne comptent pas dans le volume du corps.
 - Balisage inline autorisé dans les textes, et lui seul :
   **gras** et [libellé](/chemin). Les liens sont forcément internes.
-- Maillage : place au moins deux liens vers {targets_txt},
-  et un lien vers /blog/, répartis dans le corps.
+- Maillage interne — OBLIGATOIRE, la réponse est rejetée sans cela :
+  place AU MOINS DEUX liens markdown vers ces chemins exacts, dans deux
+  sections différentes du corps :
+{targets_bullets}
+  et AU MOINS UN lien vers /blog/.
+  Forme attendue, à recopier telle quelle : [libellé descriptif](/#services)
+  Recopie les chemins sans les modifier, sans domaine et sans rien y ajouter.
 - Ancres de liens : les libellés des liens internes doivent être descriptifs et
   se lire naturellement dans la phrase. Interdit : les libellés secs d'un seul
   mot comme « ici », « blog », « contact », « services ».
@@ -1163,22 +1204,13 @@ def main() -> int:
         # développe alors un texte déjà long au lieu de repartir d'un plus court.
         calls = 1
         while (not args.mock and calls < MAX_CALLS
-               and not PROMPT_MIN_WORDS <= wc <= MAX_WORDS):
-            if wc < PROMPT_MIN_WORDS:
-                correction = (
-                    f"Tu as généré {wc} mots pour le corps (FAQ exclue), il en faut au "
-                    f"moins {PROMPT_MIN_WORDS}. Reprends ton JSON et développe chaque "
-                    "section : ajoute des paragraphes, des exemples concrets, du "
-                    "contexte local, des nuances. Ne retire aucune section.")
-            else:
-                correction = (
-                    f"Tu as généré {wc} mots pour le corps (FAQ exclue), c'est trop : "
-                    f"il en faut au plus {PROMPT_MAX_WORDS}. Resserre chaque section "
-                    "sans en supprimer aucune.")
-            correction += " Réponds par le seul objet JSON complet."
+               and (errors or not PROMPT_MIN_WORDS <= wc <= MAX_WORDS)):
+            correction = build_correction(cfg, errors, wc)
             calls += 1
-            log(f"Volume hors cible ({wc} mots, cible {PROMPT_MIN_WORDS}) — "
-                f"tentative {calls}/{MAX_CALLS}.")
+            reason = (f"{wc} mots, cible {PROMPT_MIN_WORDS}"
+                      if not PROMPT_MIN_WORDS <= wc <= MAX_WORDS
+                      else f"{len(errors)} erreur(s) de validation")
+            log(f"Copie à reprendre ({reason}) — tentative {calls}/{MAX_CALLS}.")
             try:
                 retry = generate_content(cfg, system, user, followup=[
                     {"role": "assistant", "content": json.dumps(data, ensure_ascii=False)},

@@ -49,7 +49,6 @@
     "Les réclamations sont traitées par e-mail à q.dulout@360courtage.fr ou par courrier au siège, avec accusé de réception sous 10 jours ouvrés.",
     "Le blog donne des repères généraux : il ne constitue ni un conseil personnalisé ni un engagement contractuel, seules les conditions générales et particulières du contrat font foi."
   ],
-
   "author_role": "courtier en assurances à Tarbes",
   "author_job_title": "Courtier en assurances",
   "author_url": "https://quentinduloutcourtage.fr/#apropos",
@@ -57,11 +56,8 @@
   "blog_id": "https://quentinduloutcourtage.fr/blog/#blog",
   "internal_link_targets": [
     "/#services",
-    "/#apropos",
     "/#projet",
-    "/#epargne",
-    "/#avis",
-    "/#contact"
+    "/#apropos"
   ],
   "post_tag": "Conseils",
   "publish_hour_local": "09:00:00",
