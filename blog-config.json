@@ -1,8 +1,7 @@
 {
   "site_name": "Quentin Dulout Courtage",
-  "site_slug": "qdc",
   "site_url": "https://quentinduloutcourtage.fr",
-  "sector": "courtier en assurances (particuliers et professionnels : auto, habitation, santé, emprunteur, RC Pro, prévoyance)",
+  "sector": "courtage en assurances pour particuliers et professionnels (auto, habitation, santé, prévoyance, emprunteur, RC Pro, décennale, épargne)",
   "location": "Tarbes, Hautes-Pyrénées",
   "geo_keywords": [
     "Tarbes",
@@ -28,13 +27,43 @@
   ],
   "tone": "expert-conseil, factuel, chaleureux, sans jargon inutile",
   "author": "Quentin Dulout",
-  "author_role": "courtier en assurances à Tarbes",
   "target_word_count": 1300,
   "faq_questions_count": 5,
   "language": "fr",
-  "model": "gpt-4o-mini",
+  "model": "gpt-4o",
   "temperature": 0.7,
-  "template_article": "assurance-habitation-tarbes-locataire-proprietaire-pno",
+  "topic_marker_prefix": "qdc-topic",
+  "og_image": "/images/poignee-main-courtier-assurance-tarbes.png",
+  "logo_path": "/images/logo.jpeg",
+  "default_article_section": "Conseils assurance",
+  "reference_article_slug": "assurance-habitation-tarbes-locataire-proprietaire-pno",
+  "facts": [
+    "Quentin Dulout est courtier en assurances, immatriculé à l'ORIAS sous le numéro 26006621.",
+    "Adresse du siège : 6 rue Carnot, 65000 Tarbes.",
+    "Téléphone : +33 6 72 49 10 64. E-mail : q.dulout@360courtage.fr.",
+    "SIREN : 102 224 748. SIRET du siège : 102 224 748 00016.",
+    "Zone d'intervention : Hautes-Pyrénées (65) et départements limitrophes — Gers (32), Pyrénées-Atlantiques (64), Haute-Garonne (31), Ariège (09).",
+    "Villes couvertes en priorité : Tarbes, Lourdes, Bagnères-de-Bigorre, Pau, Auch, Toulouse, Foix.",
+    "Domaines couverts : assurance auto, habitation, santé et mutuelle, prévoyance, assurance emprunteur, RC Pro, garantie décennale, multirisque professionnelle, épargne.",
+    "Le courtier compare les offres de plusieurs assureurs et accompagne le client de la souscription au suivi du contrat ; l'accompagnement se fait à Tarbes ou à distance.",
+    "Les réclamations sont traitées par e-mail à q.dulout@360courtage.fr ou par courrier au siège, avec accusé de réception sous 10 jours ouvrés.",
+    "Le blog donne des repères généraux : il ne constitue ni un conseil personnalisé ni un engagement contractuel, seules les conditions générales et particulières du contrat font foi."
+  ],
+
+  "author_role": "courtier en assurances à Tarbes",
+  "author_job_title": "Courtier en assurances",
+  "author_url": "https://quentinduloutcourtage.fr/#apropos",
+  "publisher_id": "https://quentinduloutcourtage.fr/#business",
+  "blog_id": "https://quentinduloutcourtage.fr/blog/#blog",
+  "internal_link_targets": [
+    "/#services",
+    "/#apropos",
+    "/#projet",
+    "/#epargne",
+    "/#avis",
+    "/#contact"
+  ],
+  "post_tag": "Conseils",
   "publish_hour_local": "09:00:00",
-  "publish_tz_offset": "+02:00"
+  "publish_tz_offset": "+0200"
 }
