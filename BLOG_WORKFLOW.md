@@ -131,7 +131,7 @@ professionnel, un article épargne. Retravailler un ancien article (mise à jour
 
 ---
 
-## 5. Douze sujets prêts à traiter
+## 5. Sujets prêts à traiter
 
 Chaque sujet est déjà cadré pour respecter les règles ci-dessus.
 

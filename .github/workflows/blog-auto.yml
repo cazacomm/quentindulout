@@ -45,6 +45,42 @@ jobs:
           python -m pip install --upgrade pip
           pip install openai
 
+      # L'identité est posée ici, avant le premier commit possible : le
+      # réapprovisionnement committe BLOG_WORKFLOW.md lui-même, et git refuse
+      # de committer sans identité.
+      - name: Identité git
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      # Le lot de sujets est généré, committé ET poussé AVANT la rédaction :
+      # si l'article échoue ensuite, les sujets restent acquis sur le remote.
+      # Un échec ici ne bloque jamais la publication.
+      - name: Réapprovisionnement de la réserve de sujets
+        id: topics
+        if: inputs.dry_run != true && inputs.rewrite == ''
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          set +e
+          python scripts/generate-article.py --topics-only
+          code=$?
+          set -e
+          if [ "$code" -ne 0 ]; then
+            echo "::warning::Réapprovisionnement des sujets échoué (code $code) — on continue avec la réserve existante."
+          fi
+
+      - name: Push des nouveaux sujets
+        if: inputs.dry_run != true && inputs.rewrite == ''
+        run: |
+          git fetch origin "${GITHUB_REF_NAME}"
+          if [ -z "$(git rev-list "origin/${GITHUB_REF_NAME}..HEAD")" ]; then
+            echo "Aucun nouveau sujet à pousser."
+            exit 0
+          fi
+          git push origin HEAD:${GITHUB_REF_NAME}
+          echo "::notice::Nouveaux sujets poussés."
+
       - name: Génération de l'article
         id: generate
         env:
@@ -76,8 +112,6 @@ jobs:
             echo "::notice::Aucune modification à committer."
             exit 0
           fi
-          git config user.name  "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
           if [ -n "${{ inputs.rewrite }}" ]; then
             msg="chore(blog): reecriture de ${{ inputs.rewrite }}"
@@ -97,6 +131,7 @@ jobs:
             echo "- Code de sortie du script : \`${{ steps.generate.outputs.exit_code }}\`"
             echo "- Simulation : \`${{ inputs.dry_run || 'false' }}\`"
             echo "- Réécriture : \`${{ inputs.rewrite || '(aucune)' }}\`"
+            echo "- Réapprovisionnement : \`${{ steps.topics.outcome || 'ignoré' }}\`"
             echo ""
             echo "Codes : \`0\` succès · \`78\` aucun sujet restant · \`1\` erreur."
           } >> "$GITHUB_STEP_SUMMARY"

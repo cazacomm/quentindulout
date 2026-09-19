@@ -31,6 +31,7 @@ export OPENAI_API_KEY="sk-..."
 python3 scripts/generate-article.py --dry-run   # simulation, aucun fichier touché
 python3 scripts/generate-article.py             # génère et écrit (à committer soi-même)
 python3 scripts/generate-article.py --mock      # teste la tuyauterie sans appeler l'API
+python3 scripts/generate-article.py --topics-only   # regarnit la réserve de sujets, sans rédiger
 ```
 
 `--mock` ne produit **aucun contenu éditorial réel** : il recopie un texte de remplissage
@@ -192,6 +193,39 @@ idempotents par URL et laisseraient sinon le texte de l'ancienne version.
 
 Disponible aussi depuis Actions : champ **rewrite** du `workflow_dispatch`.
 
+## 4 quater. Réapprovisionnement automatique des sujets
+
+Sans lui, le blog s'arrêtait net : une fois les sujets de `BLOG_WORKFLOW.md`
+tous traités, le script sortait en code 78 chaque lundi et ne publiait plus rien.
+
+Le script compte les **sujets non traités** et, en dessous de
+`TOPIC_RESERVE_MIN` (8), demande à `gpt-4o` un lot de `TOPIC_BATCH` (40) sujets
+neufs, en `TOPIC_MAX_CALLS` (2) appels au plus. Les sujets déjà listés sont
+envoyés au modèle pour qu'il ne les repropose pas ; `dedupe_topics()` reste le
+filet de sécurité derrière, et il **déduplique sur le slug, pas sur le titre** —
+le slug est la clé d'idempotence du pipeline (c'est le nom du dossier dans
+`/blog/`), deux formulations qui retombent dessus se disputeraient le même
+dossier. Le lot est écrit à la fin du tableau, numérotation continue, **au
+format exact des sujets déjà présents** (titre en gras, angle indenté, puis
+`Slug : \`…\``), puis **committé seul**.
+
+« Sujet non traité » a une **définition unique**, `topic_is_pending()`, partagée
+par le comptage de la réserve et par le choix du sujet du jour. Deux définitions
+qui divergent feraient soit réapprovisionner dans le vide, soit sortir en 78
+avec des sujets encore disponibles.
+
+Dans le workflow, le réapprovisionnement tourne **avant** la rédaction, dans ses
+propres étapes, et son commit est **poussé immédiatement** : si l'article échoue
+ensuite, le lot déjà généré est acquis. Un échec du réapprovisionnement passe en
+`::warning::` et le job continue avec la réserve existante — et en mode normal
+une exception y est rattrapée et journalisée, **jamais** propagée : la
+publication ne dépend pas de la réserve. En `--topics-only`, à l'inverse,
+l'erreur remonte : c'est le seul travail du run.
+
+`--topics-only` est incompatible avec `--rewrite` (erreur explicite, code 1), et
+`--dry-run` génère le lot sans rien écrire ni committer. `--mock` utilise
+`mock_topics()`, sans aucun appel API.
+
 ## 5. Idempotence
 
 - Le slug est **déterministe** : celui annoncé dans `BLOG_WORKFLOW.md`, ou à défaut
@@ -200,6 +234,8 @@ Disponible aussi depuis Actions : champ **rewrite** du `workflow_dispatch`.
   le script passe au suivant : **aucun article existant n'est écrasé** sans `--rewrite`.
 - Les mises à jour de `blog/index.html`, `sitemap.xml`, `rss.xml` et `llms.txt` vérifient
   d'abord si l'URL est déjà présente : rejouer le workflow ne crée jamais de doublon.
+- Les sujets générés automatiquement sont dédupliqués **sur le slug**, contre les sujets
+  déjà listés et contre les dossiers déjà présents dans `/blog/`.
 - Aucun article existant n'est jamais modifié ni supprimé.
 
 ## 6. Coût estimé
@@ -221,10 +257,11 @@ d'appels effectués.
 
 ## 7. Ajouter des sujets
 
-La réserve de sujets est la section **« Douze sujets prêts à traiter »** de
-[`BLOG_WORKFLOW.md`](../BLOG_WORKFLOW.md). Quand elle est épuisée, le workflow sort en
-code 78 chaque lundi sans rien casser. Il suffit d'ajouter des blocs numérotés au même
-format pour relancer la machine :
+La réserve de sujets est la section **« Sujets prêts à traiter »** de
+[`BLOG_WORKFLOW.md`](../BLOG_WORKFLOW.md). Elle se regarnit seule dès qu'elle passe sous
+8 sujets non traités (voir §4 quater), donc il n'y a normalement rien à faire. Pour
+ajouter un sujet à la main, le format est le suivant — c'est celui que le script
+respecte aussi :
 
 ```markdown
 13. **Titre du sujet** — angle, intention de recherche visée.
