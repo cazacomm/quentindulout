@@ -190,6 +190,203 @@ Chaque sujet est déjà cadré pour respecter les règles ci-dessus.
     À qui s'adresse l'outil, différences avec l'assurance vie, points de vigilance.
     Slug : `placer-tresorerie-societe-contrat-capitalisation`.
 
+13. **Assurance habitation à Lourdes : comment protéger votre maison contre les intempéries ?**
+    Découvrez les options d'assurance habitation qui protègent efficacement votre
+    maison à Lourdes contre les intempéries.
+    Slug : `assurance-habitation-lourdes-intemperies`.
+
+14. **Pourquoi souscrire une assurance santé pour les auto-entrepreneurs à Pau ?**
+    Examinez les avantages d'une assurance santé pour les auto-entrepreneurs évoluant
+    à Pau et ses environs.
+    Slug : `assurance-sante-auto-entrepreneur-pau`.
+
+15. **Assurance auto : les spécificités à connaître dans les Hautes-Pyrénées.**
+    Explorez les particularités de l'assurance auto adaptées aux routes et conditions
+    des Hautes-Pyrénées.
+    Slug : `assurance-auto-specificites-hautes-pyrenees`.
+
+16. **Protection juridique : pourquoi est-ce crucial pour votre entreprise à Tarbes ?**
+    Découvrez l'importance d'une protection juridique pour sécuriser votre entreprise
+    située à Tarbes.
+    Slug : `protection-juridique-entreprise-tarbes`.
+
+17. **Assurance emprunteur à Bagnères-de-Bigorre : comment éviter les pièges ?**
+    Identifiez les erreurs courantes à éviter lors de la souscription d'une assurance
+    emprunteur à Bagnères-de-Bigorre.
+    Slug : `assurance-emprunteur-eviter-pieges-bagneres-bigorre`.
+
+18. **Assurer son camping-car pour explorer les Pyrénées : conseils pratiques.**
+    Apprenez comment bien assurer votre camping-car pour explorer les routes des
+    Pyrénées en toute sérénité.
+    Slug : `assurer-camping-car-explorer-pyrenees`.
+
+19. **Mutuelle santé à Vic-en-Bigorre : choisir les meilleures garanties pour votre famille.**
+    Guide pour sélectionner une mutuelle santé optimale pour vous et votre famille à
+    Vic-en-Bigorre.
+    Slug : `mutuelle-sante-garanties-famille-vic-bigorre`.
+
+20. **Assurance décennale : est-elle obligatoire pour les entreprises du bâtiment à Argelès-Gazost ?**
+    Explorez l'obligation de souscrire une assurance décennale pour les entreprises du
+    bâtiment dans la région d'Argelès-Gazost.
+    Slug : `assurance-decennale-obligatoire-argeles-gazost`.
+
+21. **Choisir une assurance vie à Ibos : quels sont les critères essentiels ?**
+    Découvrez comment sélectionner une assurance vie en tenant compte des critères
+    essentiels à Ibos.
+    Slug : `choisir-assurance-vie-ibos`.
+
+22. **Assurance prévoyance : comment protéger vos revenus à Séméac ?**
+    Apprenez à sécuriser vos revenus grâce à une assurance prévoyance adaptée à
+    Séméac.
+    Slug : `assurance-prevoyance-proteger-revenus-semeac`.
+
+23. **Assurance auto à Lannemezan : comment réduire votre prime annuelle ?**
+    Découvrez des astuces pour diminuer le coût de votre assurance auto à Lannemezan.
+    Slug : `assurance-auto-reduire-prime-lannemezan`.
+
+24. **Assurance multirisque professionnelle : l'essentiel pour les commerces à Aureilhan.**
+    Explorez les éléments clés d'une assurance multirisque pour les commerces situés à
+    Aureilhan.
+    Slug : `assurance-multirisque-commerce-aureilhan`.
+
+25. **Assurance santé dans le Gers : quelles options pour les familles nombreuses ?**
+    Examinez les meilleures options d'assurance santé pour les familles nombreuses
+    dans le Gers.
+    Slug : `assurance-sante-familles-nombreuses-gers`.
+
+26. **Assurance responsabilité civile professionnelle : les indispensables pour les consultants à Toulouse.**
+    Découvrez les aspects essentiels de l'assurance RC Pro pour les consultants
+    opérant à Toulouse.
+    Slug : `assurance-rc-pro-consultants-toulouse`.
+
+27. **Préserver votre patrimoine avec une assurance habitation adaptée à Foix.**
+    Apprenez comment une assurance habitation peut protéger efficacement votre
+    patrimoine à Foix.
+    Slug : `assurance-habitation-proteger-patrimoine-foix`.
+
+28. **Assurance santé et prévoyance : les clés pour bien choisir à Auch.**
+    Explorez les critères pour choisir votre assurance santé et prévoyance à Auch.
+    Slug : `assurance-sante-prevoyance-choisir-auch`.
+
+29. **Assurer sa voiture de collection dans les Pyrénées-Atlantiques : ce qu'il faut savoir.**
+    Découvrez les particularités de l'assurance pour véhicules de collection dans les
+    Pyrénées-Atlantiques.
+    Slug : `assurance-voiture-collection-pyrenees-atlantiques`.
+
+30. **Assurance emprunteur pour les jeunes actifs à Bordères-sur-l'Échez.**
+    Guide sur l'assurance emprunteur adaptée aux besoins des jeunes actifs à Bordères-
+    sur-l'Échez.
+    Slug : `assurance-emprunteur-jeunes-actifs-borderes-echez`.
+
+31. **Assurance santé : comment bien choisir son contrat dans la Haute-Garonne ?**
+    Découvrez les critères pour sélectionner un contrat d'assurance santé optimal en
+    Haute-Garonne.
+    Slug : `choisir-assurance-sante-haute-garonne`.
+
+32. **Assurance auto pour les conducteurs seniors à Tarbes : quels avantages ?**
+    Examinez les avantages spécifiques des assurances auto pour les conducteurs
+    seniors à Tarbes.
+    Slug : `assurance-auto-seniors-avantages-tarbes`.
+
+33. **L'assurance pour les vélos de route à Pau : est-ce vraiment utile ?**
+    Analysez l'importance d'une assurance pour protéger votre vélo de route à Pau.
+    Slug : `assurance-velo-route-utile-pau`.
+
+34. **Assurance habitation en Ariège : comment sécuriser votre résidence secondaire ?**
+    Découvrez les options d'assurance habitation pour protéger votre résidence
+    secondaire en Ariège.
+    Slug : `assurance-habitation-residence-secondaire-ariege`.
+
+35. **Assurance santé pour les étudiants à Tarbes : quelles sont les meilleures options ?**
+    Explorez les solutions d'assurance santé adaptées aux étudiants basés à Tarbes.
+    Slug : `assurance-sante-etudiants-options-tarbes`.
+
+36. **Assurance vie : comment optimiser votre épargne dans les Hautes-Pyrénées ?**
+    Découvrez les stratégies pour maximiser les rendements de votre assurance vie dans
+    les Hautes-Pyrénées.
+    Slug : `optimiser-epargne-assurance-vie-hautes-pyrenees`.
+
+37. **Assurance auto à Lourdes : comment choisir entre neuf et occasion ?**
+    Guide pour déterminer le type d'assurance auto qui convient aux véhicules neufs ou
+    d'occasion à Lourdes.
+    Slug : `assurance-auto-neuf-occasion-lourdes`.
+
+38. **Pourquoi souscrire une assurance pour votre bateau à moteur dans le Gers ?**
+    Découvrez les raisons de souscrire une assurance pour votre bateau à moteur
+    naviguant dans le Gers.
+    Slug : `assurance-bateau-moteur-gers`.
+
+39. **Assurance santé pour les familles à Bagnères-de-Bigorre : comment faire le bon choix ?**
+    Guide pour choisir une assurance santé adaptée aux besoins des familles à
+    Bagnères-de-Bigorre.
+    Slug : `assurance-sante-familles-choix-bagneres-bigorre`.
+
+40. **Assurance retraite complémentaire : est-ce utile dans les Pyrénées-Atlantiques ?**
+    Examinez l'utilité d'une assurance retraite complémentaire pour les habitants des
+    Pyrénées-Atlantiques.
+    Slug : `assurance-retraite-complementaire-pyrenees-atlantiques`.
+
+41. **Assurance habitation à Tarbes : comment protéger vos biens contre le vol ?**
+    Découvrez les options d'assurance habitation pour protéger vos biens contre le vol
+    à Tarbes.
+    Slug : `assurance-habitation-vol-tarbes`.
+
+42. **Assurance auto à Vic-en-Bigorre : comment choisir une franchise adaptée ?**
+    Apprenez à sélectionner une franchise d'assurance auto qui correspond à vos
+    besoins à Vic-en-Bigorre.
+    Slug : `assurance-auto-franchise-vic-bigorre`.
+
+43. **Assurance multirisque : pourquoi est-ce indispensable pour un commerce à Pau ?**
+    Explorez les raisons pour lesquelles une assurance multirisque est cruciale pour
+    un commerce à Pau.
+    Slug : `assurance-multirisque-commerce-indispensable-pau`.
+
+44. **Assurance santé pour expatriés : les options à considérer en Haute-Garonne.**
+    Examinez les solutions d'assurance santé disponibles pour les expatriés résidant
+    en Haute-Garonne.
+    Slug : `assurance-sante-expatries-haute-garonne`.
+
+45. **Comment choisir une assurance scolaire pour vos enfants à Argelès-Gazost ?**
+    Découvrez les critères pour sélectionner une assurance scolaire adaptée à vos
+    enfants à Argelès-Gazost.
+    Slug : `choisir-assurance-scolaire-argeles-gazost`.
+
+46. **Assurance prévoyance individuelle à Bagnères-de-Bigorre : comment bien se couvrir ?**
+    Apprenez comment une assurance prévoyance individuelle peut vous offrir une
+    couverture optimale à Bagnères-de-Bigorre.
+    Slug : `assurance-prevoyance-individuelle-couvrir-bagneres-bigorre`.
+
+47. **Assurance auto pour les jeunes conducteurs à Foix : comment réduire les coûts ?**
+    Découvrez des astuces pour diminuer le coût de l'assurance auto pour les jeunes
+    conducteurs à Foix.
+    Slug : `assurance-auto-jeunes-conducteurs-reduire-couts-foix`.
+
+48. **Assurance habitation : quelle couverture pour un appartement en Ariège ?**
+    Explorez les options de couverture d'assurance habitation pour les appartements
+    situés en Ariège.
+    Slug : `assurance-habitation-couverture-appartement-ariege`.
+
+49. **Assurance santé à Lannemezan : comment bien comprendre votre contrat ?**
+    Guide pour déchiffrer les termes de votre contrat d'assurance santé à Lannemezan.
+    Slug : `assurance-sante-comprendre-contrat-lannemezan`.
+
+50. **Assurance multirisque professionnelle : protéger votre atelier à Ibos.**
+    Découvrez comment une assurance multirisque professionnelle peut protéger
+    efficacement votre atelier à Ibos.
+    Slug : `assurance-multirisque-atelier-ibos`.
+
+51. **Assurance vie à Lourdes : comment s'adapter aux besoins de votre famille ?**
+    Découvrez les critères pour adapter votre assurance vie aux besoins spécifiques de
+    votre famille à Lourdes. Cet article vous guidera dans le choix des options de
+    couverture les plus pertinentes.
+    Slug : `assurance-vie-adapter-famille-lourdes`.
+
+52. **Assurance emprunteur en Haute-Garonne : quelles garanties privilégier ?**
+    Explorez les garanties essentielles à privilégier pour votre assurance emprunteur
+    en Haute-Garonne. Cet article vous aidera à faire des choix éclairés pour
+    sécuriser votre projet immobilier.
+    Slug : `assurance-emprunteur-garanties-haute-garonne`.
+
 ---
 
 ## 6. Points restés ouverts
