@@ -8,7 +8,7 @@
   </url>
   <url>
     <loc>https://quentinduloutcourtage.fr/blog/</loc>
-    <lastmod>2026-10-26</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -87,6 +87,12 @@
   <url>
     <loc>https://quentinduloutcourtage.fr/blog/assurance-vie-ou-per-comment-choisir/</loc>
     <lastmod>2026-10-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://quentinduloutcourtage.fr/blog/placer-tresorerie-societe-contrat-capitalisation/</loc>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
