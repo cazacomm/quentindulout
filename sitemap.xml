@@ -8,7 +8,7 @@
   </url>
   <url>
     <loc>https://quentinduloutcourtage.fr/blog/</loc>
-    <lastmod>2026-11-16</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -105,6 +105,12 @@
   <url>
     <loc>https://quentinduloutcourtage.fr/blog/assurance-sante-auto-entrepreneur-pau/</loc>
     <lastmod>2026-11-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://quentinduloutcourtage.fr/blog/assurance-auto-specificites-hautes-pyrenees/</loc>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
